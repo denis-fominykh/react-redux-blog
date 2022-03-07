@@ -1,3 +1,6 @@
+import { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+
 import logo from 'assets/images/svg/react-router-logo.svg';
 import {
   HomeContainer,
@@ -7,8 +10,15 @@ import {
   HomeLink,
   HomeLogo,
 } from 'pages/Home/styled';
+import { peopleActions } from 'redux/people/actions';
 
 export function Home() {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(peopleActions.fetchData.request({ id: '1' }));
+  }, []);
+
   return (
     <HomeContainer>
       <HomeHeader>
