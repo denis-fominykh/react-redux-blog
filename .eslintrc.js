@@ -41,16 +41,6 @@ module.exports = {
     'react/react-in-jsx-scope': 'off', // off because New JSX Transform
     'react/prop-types': 'off', // off because we use Typescript
     '@typescript-eslint/ban-ts-comment': 'off',
-    // 'sort-imports': [
-    //   'error',
-    //   {
-    //     ignoreCase: false,
-    //     ignoreDeclarationSort: false,
-    //     ignoreMemberSort: false,
-    //     memberSyntaxSortOrder: ['all', 'single', 'multiple', 'none'],
-    //     allowSeparatedGroups: false,
-    //   },
-    // ],
     'import/order': [
       'error',
       {
@@ -63,6 +53,10 @@ module.exports = {
           },
         ],
         'newlines-between': 'always',
+        alphabetize: {
+          order: 'asc',
+          caseInsensitive: true,
+        },
       },
     ], // configure import order, import from react always first
     'jest/expect-expect': [
