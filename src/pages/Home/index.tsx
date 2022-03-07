@@ -1,5 +1,4 @@
 import { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
 
 import logo from 'assets/images/svg/react-router-logo.svg';
 import {
@@ -10,13 +9,13 @@ import {
   HomeLink,
   HomeLogo,
 } from 'pages/Home/styled';
-import { peopleActions } from 'redux/people/actions';
+import { useGetPeopleData } from 'redux/people/hooks';
 
 export function Home() {
-  const dispatch = useDispatch();
+  const getPeopleData = useGetPeopleData();
 
   useEffect(() => {
-    dispatch(peopleActions.fetchData.request({ id: '1' }));
+    getPeopleData('1');
   }, []);
 
   return (
