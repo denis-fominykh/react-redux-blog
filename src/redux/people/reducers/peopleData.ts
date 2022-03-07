@@ -1,7 +1,7 @@
 import { createReducer, PayloadAction } from '@reduxjs/toolkit';
 
-import { People } from 'types/people';
 import { peopleActions } from 'redux/people/actions';
+import { People } from 'types/people';
 
 interface InitialState {
   data: Record<string, never> | People;

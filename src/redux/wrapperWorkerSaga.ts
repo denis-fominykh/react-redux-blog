@@ -1,9 +1,9 @@
 import { Action } from '@reduxjs/toolkit';
 import axios from 'axios';
-import get from 'lodash/get';
 import camelize from 'camelize-ts';
-import snakeCaseKeys from 'snakecase-keys';
+import get from 'lodash/get';
 import { call, put, fork } from 'redux-saga/effects';
+import snakeCaseKeys from 'snakecase-keys';
 
 import { ObjectGenericValuesType } from 'types/common';
 
