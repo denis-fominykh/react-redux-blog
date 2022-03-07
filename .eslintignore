@@ -1,0 +1,5 @@
+cypress/integration/examples/*
+node_modules
+build
+coverage
+!.storybook
