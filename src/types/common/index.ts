@@ -6,4 +6,4 @@ export interface ObjectGenericValuesType<ValueType> {
   [key: string | number]: ValueType;
 }
 
-export type PrepareAction<T> = (params: ObjectGenericValuesType<T>) => Payload;
+export type PrepareAction<ParamsType> = (params: ParamsType) => Payload;
