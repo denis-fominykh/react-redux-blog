@@ -1,10 +1,10 @@
 import React from 'react';
 import { render } from 'react-dom';
 import { Provider } from 'react-redux';
-import { BrowserRouter } from 'react-router-dom';
 
 import { App } from 'App';
 import { GlobalStyle } from 'assets/style/globalStyle';
+import { ErrorBoundary } from 'components/ErrorBoundary';
 import { configureStore } from 'redux/configureStore';
 import reportWebVitals from 'reportWebVitals';
 
@@ -13,12 +13,12 @@ const store = configureStore(initialState);
 
 render(
   <React.StrictMode>
-    <BrowserRouter>
+    <ErrorBoundary>
       <Provider store={store}>
         <GlobalStyle />
         <App />
       </Provider>
-    </BrowserRouter>
+    </ErrorBoundary>
   </React.StrictMode>,
   document.getElementById('root'),
 );
