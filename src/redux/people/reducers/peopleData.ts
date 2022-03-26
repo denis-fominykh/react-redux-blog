@@ -1,19 +1,12 @@
 import { createReducer, PayloadAction } from '@reduxjs/toolkit';
 
 import { peopleActions } from 'redux/people/actions';
-import { People } from 'types/people';
+import { PeopleDataState, PeopleDataResponse } from 'redux/people/types';
 
-interface InitialState {
-  data: Record<string, never> | People;
-  error: null | string;
-  loading: boolean;
-  succeed: boolean;
-}
-
-const initialState: InitialState = {
+const initialState: PeopleDataState = {
   data: {},
   error: null,
-  loading: false,
+  loading: true,
   succeed: false,
 };
 
@@ -24,15 +17,15 @@ export const peopleDataReducer = createReducer(initialState, {
     loading: true,
   }),
   [peopleActions.fetchData.success.toString()]: (
-    state: InitialState,
-    { payload }: PayloadAction<People>,
+    state: PeopleDataState,
+    { payload }: PayloadAction<PeopleDataResponse>,
   ) => ({
     ...state,
     loading: false,
     succeed: true,
-    data: payload,
+    data: payload.results,
   }),
-  [peopleActions.fetchData.error.toString()]: (state: InitialState, { payload }: any) => ({
+  [peopleActions.fetchData.error.toString()]: (state: PeopleDataState, { payload }: any) => ({
     ...state,
     loading: false,
     error: payload.response.data.detail,

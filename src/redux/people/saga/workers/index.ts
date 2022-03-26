@@ -1,1 +1,4 @@
-export { getPeopleDataRequestWorker } from 'redux/people/saga/workers/getPeopleData';
+export {
+  getPeopleDataRequestWorker,
+  getPeopleItemDataRequestWorker,
+} from 'redux/people/saga/workers/getPeople';
