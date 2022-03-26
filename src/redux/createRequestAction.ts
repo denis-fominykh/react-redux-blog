@@ -2,7 +2,10 @@ import { createAction } from '@reduxjs/toolkit';
 
 import { PrepareAction } from 'types/common';
 
-export const createRequestActions = <T>(type: string, prepareAction: PrepareAction<T>) => ({
+export const createRequestActions = <ParamsType>(
+  type: string,
+  prepareAction: PrepareAction<ParamsType>,
+) => ({
   init: createAction(`${type}__INIT`),
   clear: createAction(`${type}__CLEAR`),
   request: createAction(`${type}_REQUEST`, prepareAction),
