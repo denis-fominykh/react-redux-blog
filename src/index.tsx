@@ -1,5 +1,5 @@
 import React from 'react';
-import { render } from 'react-dom';
+import { createRoot } from 'react-dom/client';
 import { Provider } from 'react-redux';
 
 import { App } from 'App';
@@ -11,7 +11,9 @@ import reportWebVitals from 'reportWebVitals';
 const initialState = {};
 const store = configureStore(initialState);
 
-render(
+const root = createRoot(document.getElementById('root') as HTMLElement);
+
+root.render(
   <React.StrictMode>
     <ErrorBoundary>
       <Provider store={store}>
@@ -20,7 +22,6 @@ render(
       </Provider>
     </ErrorBoundary>
   </React.StrictMode>,
-  document.getElementById('root'),
 );
 
 reportWebVitals();
