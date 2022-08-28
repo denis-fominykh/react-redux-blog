@@ -21,6 +21,7 @@ export function PeopleItem(): JSX.Element {
     if (itemId) {
       getPeopleData(itemId);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
