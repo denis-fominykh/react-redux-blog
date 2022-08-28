@@ -14,14 +14,12 @@ const store = configureStore(initialState);
 const root = createRoot(document.getElementById('root') as HTMLElement);
 
 root.render(
-  <React.StrictMode>
-    <ErrorBoundary>
-      <Provider store={store}>
-        <GlobalStyle />
-        <App />
-      </Provider>
-    </ErrorBoundary>
-  </React.StrictMode>,
+  <ErrorBoundary>
+    <Provider store={store}>
+      <GlobalStyle />
+      <App />
+    </Provider>
+  </ErrorBoundary>,
 );
 
 reportWebVitals();
