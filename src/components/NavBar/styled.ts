@@ -42,6 +42,10 @@ export const LogoLink = styled(Link)`
   text-transform: uppercase;
 `;
 
+export const Navigation = styled.div`
+  display: flex;
+`;
+
 export const Container = styled.div`
   width: 100%;
   margin: auto;
