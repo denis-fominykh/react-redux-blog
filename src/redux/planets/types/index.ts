@@ -33,8 +33,8 @@ export interface PlanetsItemDataState {
 }
 
 export interface PlanetsReducer {
-  PlanetsData: PlanetsDataState;
-  PlanetsItemData: PlanetsItemDataState;
+  planetsData: PlanetsDataState;
+  planetsItemData: PlanetsItemDataState;
 }
 
 export interface FetchPlanetsItemUrlParams {
