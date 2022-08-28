@@ -2,7 +2,7 @@ import {
   getPlanets$start,
   getPlanets$success,
   getPlanets$error,
-} from 'redux/planets/slice/planetsData';
+} from 'redux/planets/slice/planetsSlice';
 import { createApiRequestSaga } from 'redux/wrapperWorkerSaga';
 
 export const getPlanetsDataRequestWorker = createApiRequestSaga({

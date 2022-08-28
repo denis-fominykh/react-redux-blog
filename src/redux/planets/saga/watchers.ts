@@ -4,8 +4,8 @@ import {
   getPlanetsDataRequestWorker,
   getPlanetsItemDataRequestWorker,
 } from 'redux/planets/saga/workers';
-import { getPlanets$request } from 'redux/planets/slice/planetsData';
-import { getPlanetsById$request } from 'redux/planets/slice/planetsItemData';
+import { getPlanetsById$request } from 'redux/planets/slice/planetsItemSlice';
+import { getPlanets$request } from 'redux/planets/slice/planetsSlice';
 
 export function* planetsWatcher() {
   yield takeLatest([getPlanets$request], getPlanetsDataRequestWorker);

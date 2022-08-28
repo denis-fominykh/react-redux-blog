@@ -10,7 +10,7 @@ const initialState: PeopleDataState = {
   succeed: false,
 };
 
-export const peopleDataReducer = createReducer(initialState, {
+export const peopleReducer = createReducer(initialState, {
   [peopleActions.fetchData.start.toString()]: () => ({
     ...initialState,
     error: null,
