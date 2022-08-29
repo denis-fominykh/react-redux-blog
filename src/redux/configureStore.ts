@@ -1,7 +1,8 @@
-import { createStore, applyMiddleware, compose } from '@reduxjs/toolkit';
+import { applyMiddleware, compose, configureStore } from '@reduxjs/toolkit';
 import createSagaMiddleware from 'redux-saga';
 
-import { createReducer } from 'redux/rootReducer';
+import { rootQueryMiddleware } from 'redux/rootQueryMiddleware';
+import { rootReducer } from 'redux/rootReducer';
 import { rootSaga } from 'redux/rootSaga';
 
 declare global {
@@ -10,7 +11,7 @@ declare global {
   }
 }
 
-export function configureStore(initialState = {}) {
+export function configureAppStore() {
   let composeEnhancers = compose;
   const reduxSagaMonitorOptions = {};
 
@@ -39,25 +40,14 @@ export function configureStore(initialState = {}) {
 
   const enhancers = [applyMiddleware(...middlewares)];
 
-  const store = createStore(createReducer(), initialState, composeEnhancers(...enhancers));
-
-  // Extensions
-  // @ts-ignore
-  store.runSaga = sagaMiddleware.run;
-  // @ts-ignore
-  store.injectedReducers = {}; // Reducer registry
-  // @ts-ignore
-  store.injectedSagas = {}; // Saga registry
-
-  // Make reducers hot reloadable, see http://mxs.is/googmo
-  // @ts-ignore
-  if (module.hot) {
-    // @ts-ignore
-    module.hot.accept('./rootReducer', () => {
-      // @ts-ignore
-      store.replaceReducer(createReducer(store.injectedReducers));
-    });
-  }
+  const store = configureStore({
+    reducer: rootReducer,
+    middleware: getDefaultMiddleware => [
+      ...getDefaultMiddleware().concat(rootQueryMiddleware),
+      sagaMiddleware,
+    ],
+    enhancers: [...enhancers],
+  });
 
   sagaMiddleware.run(rootSaga);
 

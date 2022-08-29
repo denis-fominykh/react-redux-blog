@@ -42,7 +42,7 @@ export const LogoLink = styled(Link)`
   text-transform: uppercase;
 `;
 
-export const Navigation = styled.div`
+export const UnorderedList = styled.ul`
   display: flex;
 `;
 
