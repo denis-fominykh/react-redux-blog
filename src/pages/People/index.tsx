@@ -17,11 +17,6 @@ export function People(): JSX.Element {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  useEffect(() => {
-    console.log('people:', people);
-    console.log('loader:', loader);
-  }, [people, loader]);
-
   return (
     <>
       <PageHeader>
